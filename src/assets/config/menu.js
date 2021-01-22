@@ -104,6 +104,16 @@ export default [
           noCache: true
         }
       },
+      {
+        name: '生成配置',
+        path: 'generator/config/:name',
+        hidden: true,
+        component: 'tools/generator/config',
+        meta: {
+          title: '生成配置',
+          noCache: true
+        }
+      },
     ]
   },
   // 错误路径定向到首页

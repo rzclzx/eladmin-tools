@@ -66,7 +66,7 @@
         </el-table-column>
       </template>
       <el-table-column
-        width="200"
+        width="100"
         label="操作"
         align="center"
         :resizable="false"
@@ -75,23 +75,34 @@
           <el-button
             size="mini"
             type="text"
-            @click="$router.push(`/tools/generator/config/${scope.row.tableName}`)"
+            @click="edit(scope.row)"
           >配置</el-button>
-          <el-button
-            size="mini"
-            type="text"
-            @click="edit(scope.row)"
-          >预览</el-button>
-          <el-button
-            size="mini"
-            type="text"
-            @click="edit(scope.row)"
-          >下载</el-button>
-          <el-button
-            size="mini"
-            type="text"
-            @click="edit(scope.row)"
-          >生成</el-button>
+          <el-popover
+            :ref="scope.row.id"
+            placement="top"
+            width="100"
+          >
+            <el-button 
+              slot="reference" 
+              type="text" 
+              size="mini"
+            >删除</el-button>
+            <div style="text-align:center;margin:10px">确定删除吗?</div>
+            <div class="flex-center-center">
+              <div>
+                <el-button
+                  size="mini"
+                  type="text"
+                  @click="$refs[scope.row.id].doClose()"
+                >取消</el-button>
+                <el-button
+                  type="primary"
+                  size="mini"
+                  @click="subDelete(scope.row.id)"
+                >确定</el-button>
+              </div>
+            </div>
+          </el-popover>
         </template>
       </el-table-column>
     </el-table>
@@ -135,6 +146,20 @@ export default {
       const sort = 'id,desc';
       this.params = Object.assign({ page: this.page, size: this.size, sort: sort }, this.query);
       return true;
+    },
+    subDelete(id) {
+      del(id).then(res => {
+        this.$refs[id].doClose();
+        this.dleChangePage();
+        this.init();
+        this.$notify({
+          title: '删除成功',
+          type: 'success',
+          duration: 2500
+        });
+      }).catch(err => {
+        this.$refs[id].doClose();
+      })
     },
   }
 }
