@@ -1,6 +1,7 @@
 <template>
   <div class="app-container">
-    <div class="table-header flex-between-center">
+    <el-page-header @back="goBack" />
+    <div class="table-header flex-between-center" style="margin-top: 10px">
       <h3 class="table-title">{{ `字段配置-${tableName}` }}</h3>
       <div class="flex-end-center">
         <el-button 
@@ -161,7 +162,9 @@ export default {
     
   },
   methods: {
-    
+    goBack() {
+
+    }
   }
 }
 </script>
