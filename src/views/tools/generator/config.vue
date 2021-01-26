@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-page-header @back="goBack" />
-    <!-- <div class="table-header flex-between-center" style="margin-top: 10px">
+    <div class="table-header flex-between-center" style="margin-top: 10px">
       <h3 class="table-title">{{ `字段配置-${tableName}` }}</h3>
       <div class="flex-end-center">
         <el-button 
@@ -136,7 +136,7 @@
           </el-select>
         </template>
       </el-table-column>
-    </el-table> -->
+    </el-table>
     <div class="table-header flex-between-center" style="margin-top: 10px">
       <h3 class="table-title">生成配置</h3>
       <div class="flex-end-center">
