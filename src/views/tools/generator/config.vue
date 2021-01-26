@@ -172,6 +172,7 @@
             style="width:350px" 
             placeholder="类上面的作者名称"
           />
+          <span style="margin-left: 20px;color: #bebebe">el</span>
         </el-form-item>
         <el-form-item label="模块名称" prop="moduleName">
           <el-input 
@@ -180,6 +181,7 @@
             style="width:350px" 
             placeholder="模块的名称，请选择项目中已存在的模块"
           />
+          <span style="margin-left: 20px;color: #bebebe">eladmin-system</span>
         </el-form-item>
         <el-form-item label="至于包下" prop="pack">
           <el-input 
@@ -188,6 +190,7 @@
             style="width:350px" 
             placeholder="项目包的名称，生成的代码放到哪个包里面"
           />
+          <span style="margin-left: 20px;color: #bebebe">me.eladmin.modules.system</span>
         </el-form-item>
         <el-form-item label="接口名称" prop="apiAlias">
           <el-input 
@@ -196,6 +199,7 @@
             style="width:350px" 
             placeholder="接口的名称，用于控制器与接口文档中"
           />
+          <span style="margin-left: 20px;color: #bebebe">user</span>
         </el-form-item>
         <el-form-item label="前端路径" prop="path">
           <el-input 
@@ -204,6 +208,7 @@
             style="width:350px" 
             placeholder="输入views文件夹下的目录，不存在即创建"
           />
+          <span style="margin-left: 20px;color: #bebebe">aaa</span>
         </el-form-item>
         <el-form-item label="去表前缀" prop="prefix">
           <el-input 
@@ -212,6 +217,7 @@
             style="width:350px" 
             placeholder="默认不去除表前缀，可自定义"
           />
+          <span style="margin-left: 20px;color: #bebebe">sys</span>
         </el-form-item>
         <el-form-item label="是否覆盖" prop="cover">
           <el-radio-group v-model="form.cover" size="mini">
