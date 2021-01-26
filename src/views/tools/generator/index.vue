@@ -80,17 +80,17 @@
           <el-button
             size="mini"
             type="text"
-            @click="edit(scope.row)"
+            @click="$router.push(`/tools/generator/preview/${scope.row.tableName}`)"
           >预览</el-button>
           <el-button
             size="mini"
             type="text"
-            @click="edit(scope.row)"
+            @click="download(scope.row)"
           >下载</el-button>
           <el-button
             size="mini"
             type="text"
-            @click="edit(scope.row)"
+            @click="gen(scope.row)"
           >生成</el-button>
         </template>
       </el-table-column>
@@ -114,7 +114,7 @@
 import initData from '@/mixins/initData'
 import TableSet from "@/components/Table/TableSet"
 import TableTrans from '@/components/Table/TableTrans'
-import { del } from '@/api/generator'
+import { generator } from '@/api/generator'
 export default {
   components: {
     TableSet, 
@@ -136,6 +136,24 @@ export default {
       this.params = Object.assign({ page: this.page, size: this.size, sort: sort }, this.query);
       return true;
     },
+    gen(row) {
+      generator(row.tableName, 0).then(res => {
+        this.$notify({
+          title: '生成成功',
+          type: 'success',
+          duration: 2500
+        })
+      })
+    },
+    download(row) {
+      generator(row.tableName, 2).then(res => {
+        this.$notify({
+          title: '生成成功',
+          type: 'success',
+          duration: 2500
+        })
+      })
+    }
   }
 }
 </script>

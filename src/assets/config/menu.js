@@ -114,6 +114,16 @@ export default [
           noCache: true
         }
       },
+      {
+        name: '生成预览',
+        path: 'generator/preview/:name',
+        hidden: true,
+        component: 'tools/generator/preview',
+        meta: {
+          title: '生成预览',
+          noCache: true
+        }
+      },
     ]
   },
   // 错误路径定向到首页

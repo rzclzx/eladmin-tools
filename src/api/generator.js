@@ -1,5 +1,13 @@
 import request from './axios/baseAxios'
 
+export function getColumns(params) {
+  return request({
+    url: 'api/generator/columns',
+    method: 'get',
+    params
+  })
+}
+
 export function get(tableName) {
   return request({
     url: 'api/genConfig/' + tableName,
